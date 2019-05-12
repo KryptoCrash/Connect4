@@ -46,8 +46,21 @@ class Game {
       that.recent = [$last.data("row"), $last.data("col")];
 
       if(that.isGameOver($last)) {
-        alert(`GAME OVER: ${that.currentPlayer} won!`)
-        that.setupGrid()
+        setTimeout(() => {
+            alert(`GAME OVER: ${that.currentPlayer} won!`)
+            that.setupGrid()
+        }, 100);
+        that.currentPlayer='gold'
+        $("#currentPlayer")
+            .text(`It's ${that.currentPlayer}'s turn!`)
+            .css("color", that.currentPlayer);
+        return
+      }
+      if(that.isDraw()) {
+        setTimeout(() => {
+            alert(`GAME OVER: It's a Draw!`)
+            that.setupGrid()
+        }, 100);
         that.currentPlayer='gold'
         $("#currentPlayer")
             .text(`It's ${that.currentPlayer}'s turn!`)
@@ -63,6 +76,15 @@ class Game {
         .text(`It's ${that.currentPlayer}'s turn!`)
         .css("color", that.currentPlayer);
     });
+  }
+  isDraw() {
+      let top = $(`.col[data-row='0']`)
+      for(let col = 0; col < 7; col++) {
+          if($(top[col]).hasClass('none')) {
+              return false
+          }
+      }
+      return true
   }
   isGameOver(last) {
       function checkVer(last) {
