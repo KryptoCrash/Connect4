@@ -44,19 +44,18 @@ class Game {
       $last.addClass(that.currentPlayer);
       $last.addClass("recent");
       that.recent = [$last.data("row"), $last.data("col")];
-
+        console.log(that.currentPlayer)
       if(that.isGameOver($last)) {
         setTimeout(() => {
             alert(`GAME OVER: ${that.currentPlayer} won!`)
             that.setupGrid()
-        }, 100);
-        that.currentPlayer='gold'
-        $("#currentPlayer")
+            that.currentPlayer='gold'
+            $("#currentPlayer")
             .text(`It's ${that.currentPlayer}'s turn!`)
             .css("color", that.currentPlayer);
+        }, 100);
         return
-      }
-      if(that.isDraw()) {
+      } else if(that.isDraw()) {
         setTimeout(() => {
             alert(`GAME OVER: It's a Draw!`)
             that.setupGrid()
@@ -66,7 +65,7 @@ class Game {
             .text(`It's ${that.currentPlayer}'s turn!`)
             .css("color", that.currentPlayer);
         return
-      }
+      } else {
 
       that.currentPlayer == "gold"
         ? (that.currentPlayer = "blue")
@@ -75,7 +74,9 @@ class Game {
       $("#currentPlayer")
         .text(`It's ${that.currentPlayer}'s turn!`)
         .css("color", that.currentPlayer);
+      }
     });
+    
   }
   isDraw() {
       let top = $(`.col[data-row='0']`)
