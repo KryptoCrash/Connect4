@@ -1,0 +1,51 @@
+body {
+    text-align: center;
+}
+#game {
+    background: linear-gradient(135deg, rgba(115,115,115,1) 0%, rgba(68,68,68,1) 47%, rgba(0,0,0,1) 100%);
+    display: inline-block;
+    position: relative;
+}
+#currentPlayer {
+    font-weight: 900;
+    font-size: 180%;
+    margin: auto;
+    margin-bottom: 0.2%;
+    color: gold;
+}
+.col {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.gold {
+    background: linear-gradient(135deg, rgba(255,239,82,1) 0%, rgba(255,222,0,1) 39%, rgba(190,143,0,1) 100%);
+}
+.blue {
+    background: linear-gradient(135deg, rgb(0, 122, 253) 0%, rgba(0,78,255,1) 39%, rgba(0,20,190,1) 100%);
+}
+
+@-webkit-keyframes rainbow {
+    0% {border-color: hsl(0, 100%, 50%);}
+    10% {border-color: hsl(36, 100%, 50%);}
+    20% {border-color: hsl(72, 100%, 50%);}
+    30% {border-color: hsl(108, 100%, 50%);}
+    40% {border-color: hsl(144, 100%, 50%);}
+    50% {border-color: hsl(180, 100%, 50%);}
+    60% {border-color: hsl(216, 100%, 50%);}
+    70% {border-color: hsl(252, 100%, 50%);}
+    80% {border-color: hsl(288, 100%, 50%);}
+    90% {border-color: hsl(324, 100%, 50%);}
+    100% {border-color: hsl(0, 100%, 50%);}
+}
+.recent {
+    box-sizing: border-box;
+    border: 4px solid hsl(0, 100%, 50%);
+    -webkit-animation: rainbow 10s infinite alternate;
+}
